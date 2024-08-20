@@ -29,7 +29,22 @@
     "AND": {
       "title": "AND",
       "splash": "<p>次のタスクは、<b>nand</b>コンポーネントと<b>inv</b>コンポーネントだけを使って<b>AND</b>ゲートを作成することです。\n （このタスクは、どちらか一方のコンポーネントだけで解けるかもしれません。）",
-      "specification": "<p><b>AND</b>ゲートの出力は、両方の入力が 1 のときに 1 になります。"
+      "specification": "<p><b>AND</b>ゲートの出力は、両方の入力が 1 のときに 1 になります。",
+      "spoilers": {
+        "0": "実は、\"NAND\" は \"NOT AND\" の略です。\n\n（訳注：原文は「\"NAND\" は \"Negative AND\" の略である」と主張していますが、Oxford English Dictionary によると not + and が語源とのことです。）"
+      }
+    },
+    "OR": {
+      "title": "OR",
+      "specification": "<p><b>OR</b>ゲートの出力は、少なくとも1つの入力が1のときに1になります。</p>"
+    },
+    "XOR": {
+      "title": "XOR",
+      "specification": "<p><b>XOR</b>ゲートの出力は、2つの入力が異なるときに1になります。</p>",
+      "elaboration": "XOR は <u>Exclusive OR</u> の略です。Exclusive とは「排他的」という意味です。<u>a または b のどちらか一方が 1 であり（これが「OR」）、両方が 1 というわけでない（これが「排他的」）</u>ことを意味します。"
+    },
+    "HALFADD": {
+      "title": "半加算器"
     }
   }
 }
