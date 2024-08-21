@@ -176,6 +176,11 @@
       "splash": "<p>これで、ALU自体を構築できるようになりました。</p>\n<p>2つの16ビット入力値と、入力に対してどの操作を実行するかを指示する6つのオプションがあります。</p>",
       "specification": "<p>ALU（算術論理演算装置）は、2つの入力値<b>X</b>と<b>Y</b>に対して1つまたは複数の操作を実行します。</p>\n\n<p>6つのフラグにより、どのような操作が実行されるのか決まります。各フラグは、1になっているときに以下の操作を引き起こします。</p>\n\n<table>\n<tr><th>zx</th><td>Xを0にする</td></tr>\n<tr><th>nx</th><td>Xをビット反転する</td></tr>\n<tr><th>zy</th><td>Yを0にする</td></tr>\n<tr><th>ny</th><td>Yをビット反転する</td></tr>\n<tr><th>f</th><td>操作を選択する。\n <br />0の場合：出力はX AND Y\n <br />1の場合：出力はX + Y</td></tr>\n<tr><th>no</th><td>出力をビット反転する</td></tr>\n</table>\n\n<p>フラグは組み合わせることができ、その際には順序が重要です。（訳注：上の表での掲載順に基づいて操作を適用するということ）</p>\n<p>例えば、<b>zx</b>と<b>nx</b>が両方とも1の場合、Xは0のビット反転となります。</p>",
       "elaboration": "<p>6つのフラグを組み合わせることで、幅広い算術操作を実行できます。</p>\n<p>いくつかの例を挙げると、こうなります。</p>\n<table class='data numbers'>\n<tr><th>zx</th><th>nx</th><th>zy</th><th>ny</th><th>f</th><th>no</th><th>結果</th></tr>\n<tr><td>0</td><td>0</td><td>0</td><td>0</td><td>1</td><td>0</td><td>X + Y</td></tr>\n<tr><td>0</td><td>0</td><td>1</td><td>1</td><td>1</td><td>0</td><td>X - 1</td></tr>\n<tr><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>X AND Y</td></tr>\n<tr><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td><td>1</td><td>X - Y</td></tr>\n<tr><td>1</td><td>0</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>\n<tr><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td></tr>\n</table>\n\n<p>特定のフラグの組み合わせが特定の結果を引き起こす理由がすぐにはわからないかもしれませんが、自分で試してみてその仕組みを確認してみてください。</p>\n\n<p>（このALUの設計は、<a href=\"https://www.nand2tetris.org/\">Nand to Tetrisコース</a>に基づいており、許可を得てここで使用しています。）</p>\n"
+    },
+    "ALU_LOGIC": {
+      "title": "ビット演算コンポーネント\n\n\n\n",
+      "splash": "<p>これで、さまざまな操作を利用できるようになりました。さて、プロセッサの本質的に重要な役割として、「入力に基づいて異なる操作を選択できる」というものがあります。まずは、4種類のビット演算の中から1つを選択できるコンポーネントを作ることから始めましょう。</p>",
+      "specification": "<p>以下の4つの操作のうちのどれを適用するかを、2つのビットフラグ<b>op0</b>と<b>op1</b>で選択します。操作を行う対象として、16ビット入力<b>X</b>と<b>Y</b>も受け取ります。</p> \n\n<table class=truth>\n<tr><th>op1</th><th>op0</th><th>出力</th></tr> \n<tr><td>0</td><td>0</td><td>X AND Y</td></tr> \n<tr><td>0</td><td>1</td><td>X OR Y</td></tr> \n<tr><td>1</td><td>0</td><td>X XOR Y</td></tr> \n<tr><td>1</td><td>1</td><td>Xを反転</td></tr>\n</table>\n"
     }
   }
 }
