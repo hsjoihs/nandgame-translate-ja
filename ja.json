@@ -209,5 +209,31 @@
         "3": "<b>lt</b>=1かつX < 0の場合、または<b>eq</b>=1かつX = 0の場合、または<b>gt</b>=1かつX > 0の場合に、出力が1になります。"
       }
     }
+  },
+  "ui": {
+    "donate": "寄付する",
+    "about": "このサイトについて",
+    "custom_components": "カスタムコンポーネント",
+    "btn_reset_state": "状態をリセット",
+    "btn_clear_levels": "全てのステージの進捗を削除",
+    "btn_skip_level": "このステージを飛ばす",
+    "btn_next_level": "次のステージ",
+    "btn_ok": "OK",
+    "btn_close": "閉じる",
+    "stay": "このステージに留まる",
+    "click_to_reveal": "(クリックして表示)",
+    "about_translation": "翻訳文に修正すべき箇所を見つけた方は、お手数ですが <a href=\"https://github.com/hsjoihs/nandgame-translate-ja/issues/new\">https://github.com/hsjoihs/nandgame-translate-ja</a> までご報告ください。",
+    "btn_level_complete": "正誤判定をする",
+    "level_help": "ステージのヘルプ",
+    "solve_level": "ステージを解く",
+    "level_complete": "ステージクリア！",
+    "confirm_clear_levels": "全進捗が消えることになります。全てのステージの解答を削除して本当に最初からやり直しますか？",
+    "btn_clear_canvas": "盤面をリセット",
+    "level_error_header": "正しくありません。",
+    "level_error": "現状の解答は仕様を満たしていません。",
+    "custom_components_start": "カスタムコンポーネントは、自由に設計できます。特定のステージを解くための部品として使用することもできますし、単に楽しんで試行錯誤するために使っても構いません。"
+  },
+  "texts": {
+    "translation_credits": ""
   }
 }
