@@ -178,9 +178,17 @@
       "elaboration": "<p>6つのフラグを組み合わせることで、幅広い算術操作を実行できます。</p>\n<p>いくつかの例を挙げると、こうなります。</p>\n<table class='data numbers'>\n<tr><th>zx</th><th>nx</th><th>zy</th><th>ny</th><th>f</th><th>no</th><th>結果</th></tr>\n<tr><td>0</td><td>0</td><td>0</td><td>0</td><td>1</td><td>0</td><td>X + Y</td></tr>\n<tr><td>0</td><td>0</td><td>1</td><td>1</td><td>1</td><td>0</td><td>X - 1</td></tr>\n<tr><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>X AND Y</td></tr>\n<tr><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td><td>1</td><td>X - Y</td></tr>\n<tr><td>1</td><td>0</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>\n<tr><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td></tr>\n</table>\n\n<p>特定のフラグの組み合わせが特定の結果を引き起こす理由がすぐにはわからないかもしれませんが、自分で試してみてその仕組みを確認してみてください。</p>\n\n<p>（このALUの設計は、<a href=\"https://www.nand2tetris.org/\">Nand to Tetrisコース</a>に基づいており、許可を得てここで使用しています。）</p>\n"
     },
     "ALU_LOGIC": {
-      "title": "ビット演算コンポーネント\n\n\n\n",
+      "title": "ビット演算装置",
       "splash": "<p>これで、さまざまな操作を利用できるようになりました。さて、プロセッサの本質的に重要な役割として、「入力に基づいて異なる操作を選択できる」というものがあります。まずは、4種類のビット演算の中から1つを選択できるコンポーネントを作ることから始めましょう。</p>",
-      "specification": "<p>以下の4つの操作のうちのどれを適用するかを、2つのビットフラグ<b>op0</b>と<b>op1</b>で選択します。操作を行う対象として、16ビット入力<b>X</b>と<b>Y</b>も受け取ります。</p> \n\n<table class=truth>\n<tr><th>op1</th><th>op0</th><th>出力</th></tr> \n<tr><td>0</td><td>0</td><td>X AND Y</td></tr> \n<tr><td>0</td><td>1</td><td>X OR Y</td></tr> \n<tr><td>1</td><td>0</td><td>X XOR Y</td></tr> \n<tr><td>1</td><td>1</td><td>Xを反転</td></tr>\n</table>\n"
+      "specification": "<p>2つの16ビット入力<b>X</b>と<b>Y</b>に対して、指定されたビット演算を行います。以下の4種類のうちどのビット演算を行うかは、2つのビットフラグ<b>op0</b>と<b>op1</b>で指定します。</p> \n\n<table class=truth>\n<tr><th>op1</th><th>op0</th><th>出力</th></tr> \n<tr><td>0</td><td>0</td><td>X AND Y</td></tr> \n<tr><td>0</td><td>1</td><td>X OR Y</td></tr> \n<tr><td>1</td><td>0</td><td>X XOR Y</td></tr> \n<tr><td>1</td><td>1</td><td>Xをビット反転</td></tr>\n</table>\n"
+    },
+    "ALU_ARITHMETIC": {
+      "title": "算術演算装置",
+      "specification": "<p>2つの16ビット入力<b>X</b>と<b>Y</b>に対して、指定された算術演算を行います。以下の4種類のうちどの算術演算を行うかは、2つのビットフラグ<b>op0</b>と<b>op1</b>で指定します。</p> \n\n<table class=truth>\n<tr><th>op1</th><th>op0</th><th>出力</th></tr>\n<tr><td>0</td><td>0</td><td>X + Y</td></tr>\n<tr><td>1</td><td>0</td><td>X - Y</td></tr>\n<tr><td>0</td><td>1</td><td>X + 1</td></tr>\n<tr><td>1</td><td>1</td><td>X - 1</td></tr>\n</table>"
+    },
+    "ALU2": {
+      "title": "ALU",
+      "specification": "<p>ALU（算術論理演算装置）は、論理演算（ビット演算）をする装置と算術演算をする装置を組み合わせたものです。</p>\n<table class=truth>\n<colgroup class=input><col><col><col></colgroup>\n<colgroup class=output><col></colgroup>\n<tr><th colspan=3>入力</th><th>出力</th></tr>\n<tr><th>u</th><th>op1</th><th>op0</th><th></th></tr>\n<tr><td>0</td><td>0</td><td>0</td><td>X AND Y</td></tr>\n<tr><td>0</td><td>0</td><td>1</td><td>X OR Y</td></tr>\n<tr><td>0</td><td>1</td><td>0</td><td>X XOR Y</td></tr>\n<tr><td>0</td><td>1</td><td>1</td><td>Xをビット反転</td></tr>\n<tr><td>1</td><td>0</td><td>0</td><td>X + Y</td></tr>\n<tr><td>1</td><td>1</td><td>0</td><td>X - Y</td></tr>\n<tr><td>1</td><td>0</td><td>1</td><td>X + 1</td></tr>\n<tr><td>1</td><td>1</td><td>1</td><td>X - 1</td></tr>\n</table>\n<p></p>\n\n<p>オペランドに変更を加えるためのフラグがさらに2つあります。</p>\n<ul>\n<li><b>sw</b>フラグが1の場合、<b>X</b>入力と<b>Y</b>入力が交換されます。</li>\n<li><b>zx</b>フラグが1の場合、左のオペランドが<code>0</code>に置き換えられます。</li>\n</ul>\n\n<p>例えば<code>X - Y</code>の操作に対してはこれらのフラグは以下のような影響をもたらします。</p>\n<table class=truth>\n<colgroup class=input span=2><colgroup class=output span=1>\n<tbody>\n<tr><th>zx</th><th>sw</th><th>実際に起こる操作</th></tr>\n<tr><td>0</td><td>0</td><td>X - Y</td></tr>\n<tr><td>0</td><td>1</td><td>Y - X</td></tr>\n<tr><td>1</td><td>0</td><td>0 - Y</td></tr>\n<tr><td>1</td><td>1</td><td>0 - X</td></tr>\n</tbody>\n</table>"
     }
   }
 }
