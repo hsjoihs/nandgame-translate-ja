@@ -189,6 +189,25 @@
     "ALU2": {
       "title": "ALU",
       "specification": "<p>ALU（算術論理演算装置）は、論理演算（ビット演算）をする装置と算術演算をする装置を組み合わせたものです。</p>\n<table class=truth>\n<colgroup class=input><col><col><col></colgroup>\n<colgroup class=output><col></colgroup>\n<tr><th colspan=3>入力</th><th>出力</th></tr>\n<tr><th>u</th><th>op1</th><th>op0</th><th></th></tr>\n<tr><td>0</td><td>0</td><td>0</td><td>X AND Y</td></tr>\n<tr><td>0</td><td>0</td><td>1</td><td>X OR Y</td></tr>\n<tr><td>0</td><td>1</td><td>0</td><td>X XOR Y</td></tr>\n<tr><td>0</td><td>1</td><td>1</td><td>Xをビット反転</td></tr>\n<tr><td>1</td><td>0</td><td>0</td><td>X + Y</td></tr>\n<tr><td>1</td><td>1</td><td>0</td><td>X - Y</td></tr>\n<tr><td>1</td><td>0</td><td>1</td><td>X + 1</td></tr>\n<tr><td>1</td><td>1</td><td>1</td><td>X - 1</td></tr>\n</table>\n<p></p>\n\n<p>オペランドに変更を加えるためのフラグがさらに2つあります。</p>\n<ul>\n<li><b>sw</b>フラグが1の場合、<b>X</b>入力と<b>Y</b>入力が交換されます。</li>\n<li><b>zx</b>フラグが1の場合、左のオペランドが<code>0</code>に置き換えられます。</li>\n</ul>\n\n<p>例えば<code>X - Y</code>の操作に対してはこれらのフラグは以下のような影響をもたらします。</p>\n<table class=truth>\n<colgroup class=input span=2><colgroup class=output span=1>\n<tbody>\n<tr><th>zx</th><th>sw</th><th>実際に起こる操作</th></tr>\n<tr><td>0</td><td>0</td><td>X - Y</td></tr>\n<tr><td>0</td><td>1</td><td>Y - X</td></tr>\n<tr><td>1</td><td>0</td><td>0 - Y</td></tr>\n<tr><td>1</td><td>1</td><td>0 - X</td></tr>\n</tbody>\n</table>"
+    },
+    "OPCODES1": {
+      "title": "オペコード",
+      "specification": "<p>オペコードの式に対応する、ALUのビットフラグの組み合わせを選択してください。</p>\n<p>ほとんどの式については説明不要かと思います。</p>\n<p><b>~</b>はビット反転を表します。入力のすべてのビットを反転させます。</p>\n<p><b>&</b>はビット<b>AND</b>、<b>|</b>はビット<b>OR</b>です。</p>\n<p>注意: いくつかの行には、複数の正解がある場合があります。</p>",
+      "spoilers": {
+        "0": "減算ステージで見たように、Xのビット反転はマイナスXから1を引いたものに等しいです。つまり、~X = -X-1 です。\n",
+        "1": "<p>したがって、<b>nx</b>フラグにより -X-1 が、<b>ny</b>フラグにより -Y-1 が出てきます。</p>"
+      },
+      "elaboration": "<p>このステージによって、ビットフラグの組み合わせを変えるだけで様々なビット演算および算術演算が実行できることが明らかになったかと思います。さらに、<b>オペコード</b>がどんな役割を果たしているのかも見て取れたかと思います。オペコードは、対応するビットの集まりをテキストや記号として表現したものであり、そのままのビットの集まりだったり2進数だったりといった表現方法と比べて、人間にとってはるかに読みやすく理解しやすいものです。</p>\n"
+    },
+    "CONDITION": {
+      "title": "条件",
+      "specification": "<p>以下の3つのフラグで、数値<b>X</b>に対する3つの可能な条件を表します。</p>\n\n<table class='data text'>\n<tr><th>フラグ</th><th>条件</th></tr>\n<tr><td><b>lt</b></td><td>0未満</td></tr>\n<tr><td><b>eq</b></td><td>0と等しい</td></tr>\n<tr><td><b>gt</b></td><td>0より大きい</td></tr>\n</table>\n\n<p>今回作るコンポーネントでは、入力フラグで指定された条件のどれかを入力Xが満たしているときに1を出力するようにしてください。</p>\n<p>なお、フラグを組み合わせることで、以下のような条件を指定することができます。</p>\n\n<table class='data'>\n<tr><th colspan=3>フラグ</th><th>1を出力する条件</th></tr>\n<tr><th>lt</th><th>eq</th><th>gt</th><th></th></tr>\n<tr><td>0</td><td>0</td><td>0</td><td>決して出力されない</td></tr>\n<tr><td>0</td><td>0</td><td>1</td><td>X &gt; 0</td></tr>\n<tr><td>0</td><td>1</td><td>0</td><td>X = 0</td></tr>\n<tr><td>0</td><td>1</td><td>1</td><td>X ≧ 0</td></tr>\n<tr><td>1</td><td>0</td><td>0</td><td>X &lt; 0</td></tr>\n<tr><td>1</td><td>0</td><td>1</td><td>X ≠ 0</td></tr>\n<tr><td>1</td><td>1</td><td>0</td><td>X ≦ 0</td></tr>\n<tr><td>1</td><td>1</td><td>1</td><td>常に出力される</td></tr>\n</table>\n",
+      "spoilers": {
+        "0": "3つの条件のうち、同時に真となるのは1つだけです。",
+        "1": "最初の2つの条件を判定するためのコンポーネントは既に作りましたね。",
+        "2": "「X ≦ 0」とは、Xが0より小さい<i>または</i>0に等しいことを意味します。",
+        "3": "<b>lt</b>=1かつX < 0の場合、または<b>eq</b>=1かつX = 0の場合、または<b>gt</b>=1かつX > 0の場合に、出力が1になります。"
+      }
     }
   }
 }
