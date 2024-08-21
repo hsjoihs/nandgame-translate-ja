@@ -218,6 +218,11 @@
     "ALU_INSTRUCTION": {
       "title": "命令（インストラクション）",
       "specification": "<p>入力<b>I</b>は、ALUコンポーネントと条件コンポーネントに対する命令を指定します。Iのそれぞれのビットが以下のような役割を持つようにしてください。</p>\n\n<table class='data'>\n<tr><th>入力</th><th colspan=2>出力</th><th></th></tr>\n<tr><th>何番目のビットか</th><th>グループ</th><th>フラグ</th></tr>\n\n<tr><td>10</td><td>ALU</td><td>u</td></tr>\n<tr><td>9</td><td>ALU</td><td>op1</td></tr>\n<tr><td>8</td><td>ALU</td><td>op0</td></tr>\n<tr><td>7</td><td>ALU</td><td>zx</td></tr>\n<tr><td>6</td><td>ALU</td><td>sw</td></tr>\n\n<tr><td>5</td><td>書き込み先</td><td>a</td></tr>\n<tr><td>4</td><td>書き込み先</td><td>d</td></tr>\n<tr><td>3</td><td>書き込み先</td><td>*a</td></tr>\n\n<tr><td>2</td><td>条件</td><td>lt</td></tr>\n<tr><td>1</td><td>条件</td><td>eq</td></tr>\n<tr><td>0</td><td>条件</td><td>gt</td></tr>\n</table>\n\n<p>入力A、入力D、および 入力*Aは、それぞれのレジスタの値です。</p>\n<p>ALUのX入力にはDを、Y入力には命令の第12ビットに応じてAまたは*Aを指定してください。第12ビットが0の場合はA、1の場合は*Aです。</p>\n<p><b>R</b>出力には、ALU操作の結果を出力してください。</p>\n<p><b>j</b>フラグでは、ALUの出力がビット0-2で指定された条件に一致するかどうかを示してください。</p>\n"
+    },
+    "CONTROL_UNIT": {
+      "title": "制御装置",
+      "splash": "プログラムとは、命令が列をなしたもののことです。それぞれ命令は、以下の情報を指定するためのビットフラグを集めることで構成されています。\n<ul>\n<li>実行するALU操作</li>\n<li>入力として使用するレジスタ</li>\n<li>結果を格納するレジスタ</li>\n</ul>",
+      "specification": "<p>ALU命令に加えて、<b>データ命令</b>もサポートするようにしましょう。データ命令では、命令の値が直接Aレジスタに書き込まれます。</p>\n<p>命令<b>I</b>の最上位ビットに応じて、データ命令またはALU命令を実行する制御装置を作成してください。</p>\n\n<table class=data>\n<tr><th>第15ビット</th><th>命令の種類</th></tr>\n<tr><td>0</td><td>データ命令</td></tr>\n<tr><td>1</td><td>ALU命令</td></tr>\n</table>\n\n<h3>ALU命令</h3>\n<p>ALU命令の場合、出力は前のステージで指示された通りにしてください。RはALU操作の結果となるようにしましょう。</p>\n\n<h3>データ命令</h3>\n<p>データ命令の場合、出力<b>R</b>は入力<b>I</b>そのものであり、結果を格納するのはAレジスタになります。つまり、<b>a</b>は1にし、<b>d</b>、<b>*a</b>、および<b>j</b>フラグはすべて0に設定してください。</p>"
     }
   },
   "ui": {
