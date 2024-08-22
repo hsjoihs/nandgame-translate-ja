@@ -563,5 +563,124 @@
   },
   "texts": {
     "translation_credits": ""
+  },
+  "components": {
+    "NAND": {
+      "name": "nand",
+      "help": "<b>Nand</b>ゲート。両方の入力が1のときにのみ、出力が0になります。\n<table class='truth'>\n<tr><th colspan=2>入力</th><th>出力</th></tr>\n<tr><th>a</th><th>b</th><th></th></tr>\n<tr><td>0</td><td>0</td><td>1</td></tr>\n<tr><td>1</td><td>0</td><td>1</td></tr>\n<tr><td>0</td><td>1</td><td>1</td></tr>\n<tr><td>1</td><td>1</td><td>0</td></tr>\n</table>"
+    },
+    "INV": {
+      "name": "inv",
+      "help": "<b>inv</b>ゲート。入力を反転させます。\n<table class='truth'>\n<tr><th>入力</th><th>出力</th></tr>\n<tr><td>0</td><td>1</td></tr>\n<tr><td>1</td><td>0</td></tr>\n</table>"
+    },
+    "AND": {
+      "name": "and",
+      "help": "<b>and</b>ゲート。両方の入力が1の場合にのみ、出力が1になります。\n<table class='truth'>\n<tr><th colspan=2>入力</th><th>出力</th></tr>\n<tr><th>a</th><th>b</th><th></th></tr>\n<tr><td>0</td><td>0</td><td>0</td></tr>\n<tr><td>1</td><td>0</td><td>0</td></tr>\n<tr><td>0</td><td>1</td><td>0</td></tr>\n<tr><td>1</td><td>1</td><td>1</td></tr>\n</table>"
+    },
+    "OR": {
+      "name": "or",
+      "help": "<b>or</b>ゲート。少なくとも1つの入力が1の場合、出力が1になります。\n<table class='truth'>\n<tr><th colspan=2>入力</th><th>出力</th></tr>\n<tr><th>a</th><th>b</th><th></th></tr>\n<tr><td>0</td><td>0</td><td>0</td></tr>\n<tr><td>1</td><td>0</td><td>1</td></tr>\n<tr><td>0</td><td>1</td><td>1</td></tr>\n<tr><td>1</td><td>1</td><td>1</td></tr>\n</table>"
+    },
+    "RELAY-ON": {
+      "help": "電磁リレー。通常は<b>in</b>から出力に接続されていますが、<b>c</b>に電流が流れると接続が切れます。\n"
+    },
+    "RELAY-OFF": {
+      "help": "電磁リレー。<b>c</b>に電流が流れると、<b>in</b>から出力に接続されます。"
+    },
+    "XOR": {
+      "name": "xor",
+      "help": "<b>xor</b>ゲート。2つの入力が異なる場合、出力が1になります。\n <table class='truth'>\n <tr><th colspan=2>入力</th><th>出力</th></tr>\n <tr><th>a</th><th>b</th><th></th></tr>\n <tr><td>0</td><td>0</td><td>0</td></tr>\n <tr><td>1</td><td>0</td><td>1</td></tr>\n <tr><td>0</td><td>1</td><td>1</td></tr>\n <tr><td>1</td><td>1</td><td>0</td></tr>\n </table>"
+    },
+    "INV16": {
+      "name": "inv 16",
+      "help": "16ビット<b>inv</b>ゲート。各ビットを反転させます。\n <table class='truth'>\n <tr><th>入力</th><th>出力</th></tr>\n <tr><td>0</td><td>1</td></tr>\n <tr><td>1</td><td>0</td></tr>\n </table>"
+    },
+    "AND16": {
+      "name": "and 16",
+      "help": "16ビット<b>and</b>ゲート。2つの16ビット値のそれぞれの桁に対して、同じ桁のペアごとに<b>and</b>を実行します。\n <table class='truth'>\n <tr><th colspan=2>入力</th><th>出力</th></tr>\n <tr><th>A</th><th>B</th><th></th></tr>\n <tr><td>0</td><td>0</td><td>0</td></tr>\n <tr><td>1</td><td>0</td><td>0</td></tr>\n <tr><td>0</td><td>1</td><td>0</td></tr>\n <tr><td>1</td><td>1</td><td>1</td></tr>\n </table>"
+    },
+    "HALFADD": {
+      "name": "add",
+      "help": "半加算器。1ビットの数値を2つ足し算します。\n\n <table class='truth'>\n <tr><th colspan=2>入力</th><th colspan=2>出力</th></tr>\n <tr><th>a</th><th>b</th><th>h</th><th>l</th></tr>\n <tr><td>0</td><td>0</td><td>0</td><td>0</td></tr>\n <tr><td>1</td><td>0</td><td>0</td><td>1</td></tr>\n <tr><td>0</td><td>1</td><td>0</td><td>1</td></tr>\n <tr><td>1</td><td>1</td><td>1</td><td>0</td></tr>\n </table>"
+    },
+    "ADDC": {
+      "name": "add",
+      "help": "全加算器。1ビットの数値を3つ足し算します。\n <table class='truth'>\n <tr><th colspan=3>入力</th><th colspan=2>出力</th></tr>\n <tr><th>a</th><th>b</th><th>c</th><th>h</th><th>l</th></tr>\n <tr><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>\n <tr><td>0</td><td>0</td><td>1</td><td>0</td><td>1</td></tr>\n <tr><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>\n <tr><td>0</td><td>1</td><td>1</td><td>1</td><td>0</td></tr>\n <tr><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td></tr>\n <tr><td>1</td><td>0</td><td>1</td><td>1</td><td>0</td></tr>\n <tr><td>1</td><td>1</td><td>0</td><td>1</td><td>0</td></tr>\n <tr><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td></tr>\n </table>\n"
+    },
+    "ADD16": {
+      "name": "add 16",
+      "help": "<b>16ビット加算</b> 2つの16ビット数を加算します。\n オーバーフローは無視されるため、結果が65536を超えると「一周して」ゼロに戻ります。"
+    },
+    "ADDC16": {
+      "name": "add 16",
+      "help": "<b>16ビット加算</b> 2つの16ビット数と1ビットのキャリーを加算します。\n 16ビットの出力<b>S</b>は、合計を表します。出力<b>c</b>は、合計が16ビットを超えた場合のキャリーです。"
+    },
+    "INC16": {
+      "name": "inc 16",
+      "help": "<b>インクリメント</b>\n <p>16ビットの値に<b>1</b>を加算します。</p>"
+    },
+    "SUB16": {
+      "name": "sub 16",
+      "help": "<b>16ビット減算</b> ある16ビット数から別の16ビット数を減算します。\n <p>結果が負の場合、2の補数表現で表されます。</p>"
+    },
+    "ZERO": {
+      "name": "0",
+      "help": "定数<b>0</b>です。"
+    },
+    "ZERO16": {
+      "help": "定数<b>0</b>です。",
+      "name": "0"
+    },
+    "ISZERO": {
+      "name": "is zero",
+      "help": "入力された16ビットの数が0の場合、1を出力します。"
+    },
+    "ISNEG": {
+      "name": "is neg",
+      "help": "入力された16ビットの数が負の場合、1を出力します。\n<p>負の数は2の補数表現で表されるため、第15ビットが1になります。</p>"
+    },
+    "SPLIT16": {
+      "name": "スプリッタ",
+      "help": "<b>スプリッタ</b> 16ビットのバスを16個の個別の端子に分割します。"
+    },
+    "BUNDLE16": {
+      "name": "バンドラ",
+      "help": "<b>バンドラ</b> 16個の個別の端子を16ビットのバスにまとめます。"
+    },
+    "SELECT": {
+      "name": "select",
+      "help": "<b>セレクト</b>コンポーネントは、2つの入力ビットのうちの片方を出力として選択します。\n<table class='truth'>\n<tr><th>入力</th><th>出力</th></tr>\n<tr><th>s</th><th></th></tr>\n<tr><td>0</td><td>d0</td></tr>\n<tr><td>1</td><td>d1</td></tr>\n</table>\n"
+    },
+    "DECODER": {
+      "name": "decoder",
+      "help": "<b>デコーダ</b>は、制御ビットに基づいて1つの出力チャネルを1に設定します。\n<table class='truth'>\n<tr><th>入力</th><th colspan=2>出力</th></tr>\n<tr><th></th><th>c1</th><th>c0</th></tr>\n<tr><td>0</td><td>0</td><td>1</td></tr>\n<tr><td>1</td><td>1</td><td>0</td></tr>\n</table>"
+    },
+    "SELECT16": {
+      "name": "select 16",
+      "help": "<b>セレクタ</b>。アドレスビットに基づいて2つの16ビット入力チャネルのうち1つを選択します。\n<table class='truth'>\n<tr><th>入力</th><th>出力</th></tr>\n<tr><th>s</th><th></th></tr>\n<tr><td>0</td><td>D0</td></tr>\n<tr><td>1</td><td>D1</td></tr>\n</table>"
+    },
+    "DEMUX": {
+      "name": "switch",
+      "help": "<b>スイッチ</b>。データビットを2つの出力チャネルのうち1つに送ります。\n<table class='truth'>\n<tr><th colspan=2>入力</th><th colspan=2>出力</th></tr>\n<tr><th>s</th><th>d</th><th>c1</th><th>c0</th></tr>\n<tr><td>0</td><td>0</td><td>0</td><td>0</td></tr>\n<tr><td>0</td><td>1</td><td>0</td><td>1</td></tr>\n<tr><td>1</td><td>0</td><td>0</td><td>0</td></tr>\n<tr><td>1</td><td>1</td><td>1</td><td>0</td></tr>\n</table>"
+    },
+    "ALU_PRESET": {
+      "name": "unary alu",
+      "help": "<b>単項ALU</b>は、フラグに基づいて入力値<b>X</b>を変更します。\n\n<b>z</b>（ゼロ）が1であれば、入力の代わりに0が使用されます。\n<b>n</b>（反転）が1であれば、入力がビット反転されます。\n\n<table class='truth'>\n<tr><th colspan=2>入力</th><th>出力</th></tr>\n<tr><th>z</th><th>n</th><th></th></tr>\n<tr><td>0</td><td>0</td><td>X</td></tr>\n<tr><td>1</td><td>0</td><td>0</td></tr>\n<tr><td>0</td><td>1</td><td>Xを反転</td></tr>\n<tr><td>1</td><td>1</td><td>0を反転</td></tr>\n</table>\n"
+    },
+    "ALU": {
+      "name": "alu",
+      "help": "算術論理演算装置（ALU）。2つの入力<b>X</b>と<b>Y</b>に対して算術または論理演算を行います。\n6ビットの<b>op</b>（操作コード）フラグにより、どの操作を行うかを選択できます。"
+    },
+    "CONDITION": {
+      "name": "condition",
+      "help": "入力<b>X</b>が<b>cd</b>フラグで指定された条件を満たす場合、1を出力します。"
+    },
+    "SR_LATCH": {
+      "name": "sr latch",
+      "help": "<b>セット/リセットラッチ</b> ビットを保持し、出力します。\n<table class='truth'>\n<colgroup class=input><col><col></colgroup>\n<colgroup class=input><col></colgroup>\n<colgroup class=output><col></colgroup>\n<tr><th colspan=2>入力</th><th>出力</th></tr>\n<tr><th>s</th><th>r</th><th></th></tr>\n<tr><td>1</td><td>0</td><td>1</td></tr>\n<tr><td>0</td><td>1</td><td>0</td></tr>\n<tr><td>1</td><td>1</td><td>前回の出力</td></tr>\n<tr><td>0</td><td>0</td><td><i>未定義</i></td></tr>\n</table>\n"
+    },
+    "LATCH": {
+      "name": "d latch"
+    }
   }
 }
