@@ -427,6 +427,26 @@
     "STACK_POP_STATIC": {
       "title": "固定のアドレスへとポップ",
       "specification": "<p>スタックの一番上にある値を取り出し、それを<code>address</code>プレースホルダで指定されたアドレスに保存してください。</p>"
+    },
+    "STACK_EQ": {
+      "title": "イコール (eq)",
+      "specification": "<p>スタックから2つの値をポップし、それらを比較してください。等しい場合は値-1（16進数で<code>FFFF</code>）をプッシュします。等しくない場合は<code>0</code>をプッシュします。</p>\n<p>条件分岐において、<code>FFFF</code>は<u>true</u>（真）、<code>0</code>は<u>false</u>（偽）を表すものとします。</p>"
+    },
+    "STACK_GT": {
+      "title": "大なり (gt)",
+      "specification": "<p>スタックから2つの値をポップし、それらを比較してください。最初の値が2番目の値より大きい場合は値-1（16進数で<code>FFFF</code>）をプッシュします。そうでない場合は<code>0</code>をプッシュします。</p>\n\n（訳注：gt は greater than「～より大きい」の略です。）"
+    },
+    "STACK_LT": {
+      "title": "小なり (lt)",
+      "specification": "<p>スタックから2つの値をポップし、それらを比較してください。最初の値が2番目の値より小さい場合は値-1（16進数で<code>FFFF</code>）をプッシュします。そうでない場合は<code>0</code>をプッシュします。</p>\n\n（訳注：lt は less than「～より小さい」の略です。）"
+    },
+    "STACK_NOT": {
+      "title": "ビットNOT",
+      "specification": "<p>スタックの一番上にある値を、ビット反転させてください。</p>"
+    },
+    "STACK_GOTO": {
+      "title": "goto",
+      "specification": "<p>プレースホルダで指定されたラベルにジャンプしてください。</p>"
     }
   },
   "ui": {
