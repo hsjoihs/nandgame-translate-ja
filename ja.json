@@ -532,6 +532,10 @@
     "CS_CONTROL_UNIT": {
       "specification": "<p><b>I</b>入力をデコードして命令に変換します。</p>\n<p>第15ビットと第14ビットにより、どのような命令であるかを規定します。</p>\n<table class=data>\n<tr><th>第15ビット</th><th>第14ビット</th><th>命令の種類</th></tr>\n<tr><td>0</td><td>-</td><td>データ命令</td></tr>\n<tr><td>1</td><td>1</td><td>ALU命令</td></tr>\n<tr><td>1</td><td>0</td><td>以下を参照</td></tr>\n</table>\n\n<table class=data>\n<tr><th>ビット</th><th>グループ</th><th>フラグ</th></tr>\n<tr><td>13</td><td></td><td>スワップ</td></tr>\n<tr><td>12～9</td><td>未使用</td><td>-</td></tr>\n<tr><td>8</td><td rowspan=3>入力元<br>レジスタ<br>選択</td><td>s1</td></tr>\n<tr><td>7</td><td>s0</td></tr>\n<tr><td>6</td><td>sb</td></tr>\n<tr><td>5</td><td rowspan=6>出力先<br>レジスタ<br>選択</td><td>a</td></tr>\n<tr><td>4</td><td>d</td></tr>\n<tr><td>3</td><td>*a</td></tr>\n<tr><td>2</td><td>m</td></tr>\n<tr><td>1</td><td>j</td></tr>\n<tr><td>0</td><td>b</td></tr>\n</table>\n\n<p>フラグs1、s0、sbは、レジスタを選択する役割を持ちます。</p>\n<table class=data>\n<colgroup>\n<col />\n<col span=2 />\n</colgroup>\n<tbody>\n<tr><th colspan=2>フラグ</th><th>レジスタ</th></tr>\n<tr><th>s1</th><th>s0</th><th></th></tr>\n<tr><td>0</td><td>0</td><td>A</td></tr>\n<tr><td>0</td><td>1</td><td>D</td></tr>\n<tr><td>1</td><td>0</td><td>M</td></tr>\n<tr><td>1</td><td>1</td><td>PC</td></tr>\n</tbody>\n</table>\n\n<p><b>sb</b>=1の場合、バックアップレジスタが選択されます。</p>\n",
       "title": "制御装置"
+    },
+    "CS_COMBINE": {
+      "specification": "<p>コンポーネントを接続して、マルチタスクをサポートするプロセッサを作成してください。</p>",
+      "title": "プロセッサ"
     }
   },
   "ui": {
