@@ -467,10 +467,20 @@
       "title": "リターン"
     },
     "STACK_PUSH_ARG": {
-      "title": "引数をプッシュ"
+      "title": "引数をプッシュ",
+      "specification": "<p><code>ARGS</code> + <b>index</b>プレースホルダで指定されたメモリアドレスの現在の内容を取得し、それをスタックにプッシュしてください。</p>"
     },
     "STACK_POP_ARG": {
-      "title": "引数へとポップ"
+      "title": "引数へとポップ",
+      "specification": "<p>スタックの一番上の値を取り、それを<code>ARGS</code> + <b>index</b>プレースホルダで指定されたメモリアドレスに格納してください。</p>"
+    },
+    "STACK_PUSH_LOCAL": {
+      "title": "ローカル変数をプッシュ",
+      "specification": "<p><code>LOCALS</code> + <b>index</b>プレースホルダで指定されたメモリアドレスの現在の内容を取得し、それをスタックにプッシュしてください。</p>"
+    },
+    "STACK_POP_LOCAL": {
+      "title": "ローカル変数へとポップ",
+      "specification": "<p>スタックの一番上の値を取り、それを<code>LOCALS</code> + <b>index</b>プレースホルダで指定されたメモリアドレスに格納してください。</p>"
     }
   },
   "ui": {
