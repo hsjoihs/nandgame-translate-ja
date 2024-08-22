@@ -680,7 +680,43 @@
       "help": "<b>セット/リセットラッチ</b> ビットを保持し、出力します。\n<table class='truth'>\n<colgroup class=input><col><col></colgroup>\n<colgroup class=input><col></colgroup>\n<colgroup class=output><col></colgroup>\n<tr><th colspan=2>入力</th><th>出力</th></tr>\n<tr><th>s</th><th>r</th><th></th></tr>\n<tr><td>1</td><td>0</td><td>1</td></tr>\n<tr><td>0</td><td>1</td><td>0</td></tr>\n<tr><td>1</td><td>1</td><td>前回の出力</td></tr>\n<tr><td>0</td><td>0</td><td><i>未定義</i></td></tr>\n</table>\n"
     },
     "LATCH": {
-      "name": "d latch"
+      "name": "d latch",
+      "help": "<b>データラッチ</b> ビットを保持し、出力します。\n<p><b>st</b>（ストア）が1の場合、<b>d</b>ビットが保持され、出力されます。</p>\n<p><b>st</b>が0の場合、最後に保持されたビットが出力され、現在の<b>d</b>の値は無視されます。</p>"
+    },
+    "DFF": {
+      "help": "<b>データフリップフロップ</b> ビットを保持し、出力します。クロック信号によって同期されています。\n\n<table class='truth'>\n<tr><th colspan=3>入力</th><th>副作用</th><th>出力</th></tr>\n<tr><th>st</th><th>d</th><th>cl</th><th></th><th></th></tr>\n<tr><td>0</td><td>-</td><td>0</td><td>-</td><td><b>out</b></td></tr>\n<tr><td>1</td><td>0</td><td>0</td><td><b>in</b>を0に設定</td><td><b>out</b></td></tr>\n<tr><td>1</td><td>1</td><td>0</td><td><b>in</b>を1に設定</td><td><b>out</b></td></tr>\n<tr><td>-</td><td>-</td><td>1</td><td><b>out</b>を<b>in</b>に設定</td><td><b>out</b></td></tr>\n</table>\n\n<p>この表では、<b>in</b>と<b>out</b>は保持されたビットを指します。<b>cl</b>が0のときは、<b>in</b>を変更しても構いません。</p>\n<p><b>cl</b>が1に変わると、<b>out</b>は<b>in</b>の値に設定されます。</p>\n",
+      "name": "dff"
+    },
+    "DFF16": {
+      "name": "register",
+      "help": "<b>16ビットDFFレジスタ</b> 16ビットのワードを保持し、出力します。クロック信号によって同期されています。\n\n<table class='truth'>\n<tr><th colspan=3>入力</th><th>副作用</th><th>出力</th></tr>\n<tr><th>st</th><th>X</th><th>cl</th><th></th><th></th></tr>\n<tr><td>0</td><td>-</td><td>0</td><td>-</td><td><b>out</b></td></tr>\n<tr><td>1</td><td>-</td><td>0</td><td><b>in</b>をXに設定</td><td><b>out</b></td></tr>\n<tr><td>-</td><td>-</td><td>1</td><td><b>out</b>を<b>in</b>に設定</td><td><b>out</b></td></tr>\n</table>\n"
+    },
+    "RAM2": {
+      "name": "ram2",
+      "help": "<b>RAM 2</b> 16ビットの値を2つ保持します。\n<p><b>ad</b>: 読み出し用の1ビットアドレス（<b>st</b>が1の場合は書き込みにも使用されます）</p>\n<p><b>X</b>: 保存するデータ（<b>st</b>が1の場合）</p>\n<p><b>st</b>: 1の場合、アドレス<b>ad</b>に<b>D</b>を保存します</p>\n<p><b>cl</b>: クロック信号。</p>\n<p>出力は、<b>ad</b>で指定されたアドレスに保存された16ビットの値です。</p>"
+    },
+    "COUNTER": {
+      "name": "counter",
+      "help": "<b>16ビットカウンタ</b> 16ビットのワードを保持し、出力します。\n<p>カウンタは、<b>cl</b>（クロック信号）が0に変わるときに変更されます。\n\n<table class='truth'>\n<tr><th>st</th><th></th></tr>\n<tr><td>0</td><td>カウンタは現在の数値に1を加えた値に設定されます。</td></tr>\n<tr><td>1</td><td>カウンタは<b>X</b>に設定されます。</td></tr>\n</table>"
+    },
+    "RAM": {
+      "name": "ram",
+      "help": "<b>RAM</b> 64Kの16ビット値を保持します。\n<p><b>Ad</b>: 読み出し用のアドレス（<b>st</b>が1の場合は書き込みにも使用されます）</p>\n<p><b>X</b>: 保存するデータ（<b>st</b>が1の場合）</p>\n<p><b>st</b>: 1の場合、アドレス<b>Ad</b>に<b>D</b>を保存します</p>\n<p><b>cl</b>: クロック信号。</p>\n<p>出力は、<b>Ad</b>で指定されたアドレスに保存された16ビットの値です。</p>\n"
+    },
+    "STATE": {
+      "name": "memory"
+    },
+    "ROM": {
+      "name": "rom"
+    },
+    "BUTTON": {
+      "name": "button"
+    },
+    "LAMP": {
+      "name": "lamp"
+    },
+    "ROBOT": {
+      "name": "robot"
     }
   }
 }
