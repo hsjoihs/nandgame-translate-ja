@@ -127,7 +127,7 @@
     "LATCH": {
       "title": "Dラッチ",
       "splash": "<p>SRラッチは、1を保持するためのピンと0を保持するためのピンが別々であることや、(0, 0)の入力状態が「禁止されている」ことといった面倒があるため、メモリを構築するための部品としてはあまり実用的ではありません。<b>データラッチ</b>では、SRラッチを拡張し、「データ用の入力が 1 つ、そのデータを保持するかどうかを示す入力が 1 つ」というふうに、入力がもっと実用的になるようになっています。</p>\n",
-      "specification": "<p><b>Dラッチ</b>（データラッチ）コンポーネントは、1ビットを保持します。</p>\n<p><b>st</b>（ストア）が1のとき、<b>d</b>の値が保持され、出力されます。</p>\n<p><b>st</b>が0のとき、<b>d</b>の値は無視され、以前に保持された値が引き続き出力されます。</p>\n\n<table class='data'>\n<colgroup class=input><col><col></colgroup>\n<colgroup class=input><col></colgroup>\n<colgroup class=output><col></colgroup>\n<tr><th colspan=2>入力</th><th>出力</th></tr>\n<tr><th>st</th><th>d</th><th></th><th></th></tr>\n<tr><td>1</td><td>0</td><td>0</td></tr>\n<tr><td>1</td><td>1</td><td>1</td></tr>\n<tr><td>0</td><td>1</td><td>前回と同じ</td></tr>\n<tr><td>0</td><td>0</td><td>前回と同じ</td></tr>\n</table>\n\n<p>初めて<b>st</b>がセットされるまでの出力（初期出力）は未定義であり、任意の値が許容されます。</p>"
+      "specification": "<p><b>Dラッチ</b>（データラッチ）コンポーネントは、1ビットを保持します。</p>\n<p><b>st</b>（ストア）が1のとき、<b>d</b>の値が保持され、出力されます。</p>\n<p><b>st</b>が0のとき、<b>d</b>の値は無視され、以前に保持された値が引き続き出力されます。</p>\n\n<table class='data'>\n<colgroup class=input><col><col></colgroup>\n<colgroup class=input><col></colgroup>\n<colgroup class=output><col></colgroup>\n<tr><th colspan=2>入力</th><th>出力</th></tr>\n<tr><th>st</th><th>d</th><th></th><th></th></tr>\n<tr><td>1</td><td>0</td><td>0</td></tr>\n<tr><td>1</td><td>1</td><td>1</td></tr>\n<tr><td>0</td><td>1</td><td>前回と同じ</td></tr>\n<tr><td>0</td><td>0</td><td>前回と同じ</td></tr>\n</table>\n\n<p>初めて<b>st</b>がセットされるまでの出力（初期出力）は未規定であり、任意の値が許容されます。</p>"
     },
     "DFF": {
       "title": "データフリップフロップ",
